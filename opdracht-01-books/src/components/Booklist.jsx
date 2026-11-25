@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Book from './Book'
 import './Booklist.css'
+import BookCounter from './bookCounter'
 
 const Booklist = () => {
     const [books, setBooks] = useState([
@@ -25,7 +26,9 @@ const Booklist = () => {
     ]);
 
     return (
-        <section className='boeklijst'>
+       <>
+            <BookCounter aantal={books.length} />
+             <section className='boeklijst'>
             {books.map((book) => (
                 <Book
                     key={book.id}
@@ -35,6 +38,7 @@ const Booklist = () => {
                 />
             ))}
         </section>
+        </>
     );
 }
 
